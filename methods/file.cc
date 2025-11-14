@@ -120,6 +120,8 @@ bool FileMethod::Fetch(FetchItem *Itm)
    else
    {
       errno = olderrno;
+      fprintf(stderr, "[APT-DEBUG] Current directory listing:\n");
+      system("ls -l");
       //加上日志打印输出。
       fprintf(stderr, "[APT-DEBUG] File not found triggered for: %s, errno=%d\n", File.c_str(), errno);
       return _error->Errno(File.c_str(), _("File not found"));
